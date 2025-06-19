@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/static/admin.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <ul>
+      <li><a href="/xhSHIH720nshADMIN/upload">Upload Files</a></li>
+      <li><a href="/xhSHIH720nshLOGOUT">Logout</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Active Tickets</h1>
+
+    {% if tickets %}
+      {% for ticket_name, ticket_data in tickets.items() %}
+      <div class="ticket">
+        <h2>
+          Ticket: {{ ticket_name }}
+          <span class="status {{ 'open' if ticket_data.status == 'open' else 'closed' }}">
+            {{ ticket_data.status }}
+          </span>
+        </h2>
+        <div class="created_at">Created on: {{ ticket_data.created_at }}</div>
+        <div class="email">User Email: {{ ticket_data.user_email }}</div>
+        {% if ticket_data.history_user %}
+          <div class="preview">Last message: {{ ticket_data.history_user[-1].message[:100] }}...</div>
+        {% else %}
+          <div class="preview">No messages yet</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    {% else %}
+      <p>No active tickets.</p>
+    {% endif %}
+  </main>
+</body>
+<script src="/static/admin_dash.js"></script>
+</html>

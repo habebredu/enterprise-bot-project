@@ -1,0 +1,188 @@
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: calc(100vw - 1rem);
+  margin: 0.5rem;
+  background: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+#chatSection {
+  display: block;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f9fafb;
+  font-size: 1rem;
+  line-height: 1.4;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.chat-box div {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.chat-box b {
+  color: #1f2937;
+}
+
+.input-row {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  background: white;
+  padding-top: 0.75rem;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+.input-row input[type="text"] {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.input-row button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.input-row button:hover {
+  background: #2563eb;
+}
+
+.message {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 16px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.user-message {
+  position: relative;
+  right: 0px;
+  background-color: #3b82f6;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  float: right;
+}
+
+.bot-message {
+  background-color: #e5e7eb;
+  color: #111827;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.email-sent {
+  align-self: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  background: #f3f4f6;
+  padding: 0.4rem 0.75rem;
+  border-radius: 12px;
+  margin: 0.5rem 0;
+  max-width: 80%;
+  text-align: center;
+}
+
+.email-prompt {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: #f0f0f5;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+
+.email-prompt input[type="email"] {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.email-prompt button {
+  align-self: flex-start;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.email-prompt button:hover {
+  background-color: #2563eb;
+}
+

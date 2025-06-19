@@ -1,0 +1,226 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 2rem;
+  color: #1f2937;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #111827;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Ticket Cards - Clean Layout */
+.ticket {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Ticket Title and Meta Layout */
+.ticket h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #1f2937;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+
+/* Top Navigation */
+.top-nav {
+  background-color: #1f2937;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.top-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.top-nav li {
+  display: inline-block;
+  margin: 0 1.2rem;
+}
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.top-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Heading */
+h1 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Ticket Card */
+.ticket {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Ticket Title and Status */
+.ticket h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #111827;
+}
+
+/* Status badges */
+.status {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: center;
+  user-select: none;
+}
+
+.status.open {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.status.closed {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Meta info */
+.created_at,
+.email {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.preview {
+  font-style: italic;
+  color: #6b7280;
+  margin-top: 0.3rem;
+}
+
+
+.admin-upload-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.admin-upload-container h2 {
+  margin-bottom: 1.5rem;
+}
+
+.admin-upload-container input[type="file"] {
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.admin-upload-container button {
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.admin-upload-container button:hover {
+  background: #2563eb;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Top Nav */
+.top-nav {
+  background-color: #1f2937;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.top-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.top-nav a:hover {
+  text-decoration: underline;
+}

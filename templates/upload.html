@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Files</title>
+  <link rel="stylesheet" href="/static/admin.css">
+</head>
+<body>
+  <div class="admin-upload-container">
+    <h2>Upload Knowledge Files</h2>
+    <div id="successMessage" style="display: none; color: green; margin-bottom: 1em;">
+      ✅ File(s) uploaded and processed successfully!
+    </div>
+
+    <form id="uploadForm" enctype="multipart/form-data" method="POST" action="/upload_file">
+      <input type="file" name="files" id="files" multiple required/>
+      <button type="submit">Upload</button>
+    </form>
+    <a href="/xhSHIH720nshADMIN" class="back-link">← Back to Dashboard</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("success") === "true") {
+      document.getElementById("successMessage").style.display = "block";
+    }
+  </script>
+</body>
+</html>

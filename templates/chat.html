@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Support</title>
+  <link rel="stylesheet" href="/static/chat.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div id="chatSection">
+      <div id="chat" class="chat-box"></div>
+    </div>
+
+    <div id="emailPrompt" class="email-prompt">
+      <label for="emailInput">Enter your email so we can follow up:</label>
+      <input type="email" id="emailInput" placeholder="you@example.com" />
+      <button onclick="submitEscalation()">Submit</button>
+    </div>
+
+    <div class="input-row">
+        <input id="message" type="text" placeholder="Type your message..." />
+        <button id="sendButton">Send</button>
+    </div>
+  </div>
+  <script src="/static/chat.js"></script>
+</body>
+</html>
