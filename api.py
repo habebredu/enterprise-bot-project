@@ -10,6 +10,7 @@ import threading
 from pathlib import Path
 import shutil
 from typing import List
+import logging
 
 
 from ticket_manager import DatabaseHandler
@@ -27,6 +28,8 @@ security = HTTPBasic()
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+logger = logging.getLogger(__name__)
 
 
 def verify_admin(request: Request):
@@ -143,7 +146,7 @@ async def ask_question(request: schemas.AskRequest):
 
 @app.post("/escalate")
 async def escalate_chat(escalation: schemas.EmailInput):
-    print('escalated')
+    logger.info("Escalated")
     email = escalation.email
 
     with DatabaseHandler() as db:
