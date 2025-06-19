@@ -21,28 +21,19 @@ SCOPES = ["https://mail.google.com/"]
 ADMIN = "habeb.rizmi@hotmail.com"
 CHATBOT = "habeb.chat.bot@gmail.com"
 
-
 def get_service():
-    creds = None
-    if os.path.exists("token.json"):
-        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            with open("credentials.json", "w") as file:
-                file.write(os.getenv("GOOGLE_CREDS_JSON"))
-            flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
-            creds = flow.run_local_server(port=0)
+    token_data = os.getenv("GOOGLE_TOKEN_JSON")
 
-    # Save the credentials for the next run
-    with open("token.json", "w") as token:
-        token.write(creds.to_json())
+    if not token_data:
+        raise RuntimeError("Missing GOOGLE_TOKEN_JSON in environment.")
 
-    service = build("gmail", "v1", credentials=creds)
-    return service
+    creds = Credentials.from_authorized_user_info(json.loads(token_data), SCOPES)
 
+    if creds.expired and creds.refresh_token:
+        creds.refresh(Request())
+
+    return build("gmail", "v1", credentials=creds)
+    
 
 def get_or_create_label(label_name):
     service = get_service()
