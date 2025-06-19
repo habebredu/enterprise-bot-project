@@ -101,7 +101,10 @@ def send_email(to, ticket_name):
             message["References"] = in_reply_to
 
         create_message = {"raw": base64.urlsafe_b64encode(message.as_bytes()).decode()}
-        sent_msg = service.users().messages().send(userId="me", body=create_message).execute()
+        try:
+            sent_msg = service.users().messages().send(userId="me", body=create_message).execute()
+        except Exception as e:
+            logger.info(e)
         msg_id = sent_msg['id']
         thread_id = sent_msg['threadId']
         db2.update_ticket_field(ticket_name, 'thread_id_admin', thread_id)
