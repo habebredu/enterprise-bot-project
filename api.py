@@ -117,21 +117,24 @@ def start_background_thread():
 
 @app.post("/ask")
 async def ask_question(request: schemas.AskRequest):
-    ticket_name = request.ticket_name
-    question = request.question
-
-    if not ticket_name:
-        TEMP_CHAT_HISTORY.append({'role': "user", "message": question})
-    else:
-        with DatabaseHandler() as db:
-            db.append_history('history_user', ticket_name, 'user', question)
-
-    answer, send = ask_bot(question, ticket_name)
-
-    return JSONResponse(content={
-        "answer": answer,
-        "send": send
-    })
+    try:
+        ticket_name = request.ticket_name
+        question = request.question
+    
+        if not ticket_name:
+            TEMP_CHAT_HISTORY.append({'role': "user", "message": question})
+        else:
+            with DatabaseHandler() as db:
+                db.append_history('history_user', ticket_name, 'user', question)
+    
+        answer, send = ask_bot(question, ticket_name)
+    
+        return JSONResponse(content={
+            "answer": answer,
+            "send": send
+        })
+    except Exception as e:
+        print(e)
 
 
 @app.post("/escalate")
