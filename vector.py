@@ -3,9 +3,10 @@ from langchain_chroma import Chroma
 from langchain.schema import Document
 from langchain_community.document_loaders import UnstructuredFileLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+import os
 
-
-genai.configure(api_key="AIzaSyCvxwnQ3w0ENoTe5u68W1-HXTdgKlspBAk")
+API_KEY = os.getenv("API_KEY")
+genai.configure(api_key=API_KEY)
 
 # Test docs
 doc1 = {"db_id": "0",
