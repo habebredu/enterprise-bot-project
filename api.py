@@ -29,7 +29,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-logger = logging.getLogger(__name__)
+print("testing...")
 
 
 def verify_admin(request: Request):
@@ -113,17 +113,7 @@ async def upload_file(files: List[UploadFile] = File(...), _: str = Depends(veri
 def start_background_thread():
     email_thread = threading.Thread(target=background_ticket_watcher, daemon=True)
     email_thread.start()
-
-
-"""
-@app.post("/generate_ticket")
-def create_ticket(info: schemas.EmailInput):
-    print(info.email)
-    with DatabaseHandler() as db:
-        ticket_name = db.generate_ticket(info.email)
-        return {"ticket_name": ticket_name}
-"""
-
+    
 
 @app.post("/ask")
 async def ask_question(request: schemas.AskRequest):
@@ -146,7 +136,7 @@ async def ask_question(request: schemas.AskRequest):
 
 @app.post("/escalate")
 async def escalate_chat(escalation: schemas.EmailInput):
-    logger.info("Escalated")
+    print("escalated")
     email = escalation.email
 
     with DatabaseHandler() as db:
